@@ -1,0 +1,1 @@
+- [Reference design source](mon-petit-choux-reference.md) — The supplied reference HTML is the canonical design and copy source for the bakery homepage.

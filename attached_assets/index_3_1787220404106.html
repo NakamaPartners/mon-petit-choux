@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon-Petit-Choux, Pastry Shoppe, Cheviot, Cincinnati</title>
+<meta name="description" content="A pastry shoppe in Cheviot, Cincinnati. Choux pastry, gourmet eclairs, laminated viennoiserie and layer cakes, baked before sunrise and sold until the case is empty.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oat:#E9E3D4;
+    --sage:#D8DCCD;
+    --plate:#FFFFFF;
+    --ink:#17120D;
+    --night:#0F0B07;
+    --blueberry:#2B3159;
+    --rule:rgba(23,18,13,.18);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--oat);
+    color:var(--ink);
+    font-family:'EB Garamond', Garamond, Georgia, serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ol,ul{margin:0;padding:0;}
+  p{margin:0;}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  @media (max-width:720px){.wrap{padding:0 22px;}}
+
+  /* ================= type ================= */
+  .heading-lg{font-size:clamp(30px,4.4vw,54px);line-height:0.98;letter-spacing:-0.022em;margin:0;}
+  .heading{font-size:clamp(21px,2.4vw,28px);line-height:1.18;letter-spacing:-0.012em;margin:0;}
+  .body-copy{font-size:18px;line-height:1.55;max-width:60ch;}
+  .micro{font-size:11px;text-transform:uppercase;letter-spacing:0.24em;line-height:1.5;}
+  .micro-w{font-size:11px;text-transform:uppercase;letter-spacing:0.14em;line-height:1.5;}
+  .script{font-family:'Pinyon Script', cursive;letter-spacing:0;}
+  .ital{font-style:italic;}
+
+  /* ================= logo lockup ================= */
+  /* To drop in the original artwork, replace the three children of .lockup with:
+     <img src="mon-petit-choux-logo.png" alt="Mon-Petit-Choux, Pastry Shoppe"> */
+  .lockup{display:block;text-align:center;line-height:1;}
+  .lockup .orn{margin:0 auto;color:currentColor;}
+  .lk-name{display:block;letter-spacing:-0.012em;}
+  .lk-sub{display:block;text-transform:uppercase;}
+
+  .lockup-nav .orn{width:92px;margin-bottom:5px;}
+  .lockup-nav .lk-name{font-size:17px;}
+  .lockup-nav .lk-sub{font-size:8px;letter-spacing:0.3em;margin-top:5px;}
+
+  .lockup-hero .orn{width:clamp(210px,33vw,400px);margin-bottom:clamp(16px,2.4vw,30px);}
+  .lockup-hero .lk-name{font-size:clamp(37px,8.3vw,116px);letter-spacing:-0.028em;}
+  .lockup-hero .lk-sub{font-size:clamp(9px,1.1vw,13px);letter-spacing:0.42em;margin-top:clamp(12px,1.6vw,20px);}
+
+  .lockup-foot .orn{width:104px;margin-bottom:6px;}
+  .lockup-foot .lk-name{font-size:18px;}
+  .lockup-foot .lk-sub{font-size:8px;letter-spacing:0.3em;margin-top:5px;}
+
+  .orn{stroke:currentColor;fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;height:auto;}
+
+  /* ================= nav ================= */
+  .nav{
+    position:sticky;top:0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:16px 40px;
+    background:rgba(233,227,212,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid transparent;
+    transition:border-color .5s var(--ease);
+  }
+  .nav.scrolled{border-bottom-color:var(--rule);}
+  @media (max-width:720px){.nav{padding:11px 22px;}}
+  .navlinks{display:flex;align-items:center;gap:32px;}
+  .navlinks a.t{font-size:16px;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .35s var(--ease),color .35s var(--ease);}
+  .navlinks a.t:hover{color:var(--blueberry);border-bottom-color:var(--blueberry);}
+  @media (max-width:820px){.navlinks a.t{display:none;}}
+
+  .pill{
+    display:inline-flex;align-items:center;
+    padding:11px 26px;border-radius:9999px;
+    border:1px solid var(--blueberry);background:var(--blueberry);color:var(--oat);
+    font-size:11px;text-transform:uppercase;letter-spacing:0.18em;
+    transition:background .35s var(--ease),color .35s var(--ease);
+  }
+  .pill:hover{background:transparent;color:var(--blueberry);}
+  .pill.ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .pill.ghost:hover{background:var(--ink);color:var(--oat);}
+
+  /* ================= hero ================= */
+  .hero{padding:40px 40px 76px;}
+  @media (max-width:720px){.hero{padding:24px 20px 52px;}}
+  .hero-frame{
+    position:relative;max-width:1240px;margin:0 auto;
+    border:1px solid var(--ink);
+    padding:clamp(56px,7.4vw,96px) clamp(22px,5vw,64px) clamp(50px,6.6vw,84px);
+    text-align:center;background:var(--oat);
+    opacity:0;
+  }
+  .orn-slot{position:absolute;left:50%;padding:0 8px;line-height:0;background:var(--oat);color:var(--ink);}
+  .orn-slot.top{top:0;transform:translate(-50%,-50%);}
+  .orn-slot.bottom{bottom:0;transform:translate(-50%,50%);}
+  .orn-slot svg{width:clamp(190px,30vw,360px);}
+  .hero-tag{
+    font-style:italic;
+    font-size:clamp(20px,2.9vw,35px);
+    line-height:1.16;letter-spacing:-0.014em;
+    margin:clamp(30px,4vw,50px) auto 0;max-width:27ch;
+  }
+  .hero-hours{max-width:1240px;margin:20px auto 0;text-align:center;opacity:0;}
+
+  @keyframes riseIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  .hero-frame{animation:riseIn .85s var(--ease) .05s forwards;}
+  .orn-slot{opacity:0;animation:fadeIn 1s var(--ease) .5s forwards;}
+  .lockup-hero .orn,.lockup-hero .lk-name,.lockup-hero .lk-sub,.hero-tag{opacity:0;animation:riseIn .8s var(--ease) forwards;}
+  .lockup-hero .orn{animation-delay:.30s;}
+  .lockup-hero .lk-name{animation-delay:.40s;}
+  .lockup-hero .lk-sub{animation-delay:.52s;}
+  .hero-tag{animation-delay:.64s;}
+  .hero-hours{animation:fadeIn .9s var(--ease) .82s forwards;}
+
+  /* ================= scroll reveal ================= */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+  .rv.in{opacity:1;transform:none;}
+
+  /* ================= the name ================= */
+  .name{background:var(--sage);padding:clamp(64px,8.4vw,104px) 0;}
+  .name-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(34px,6vw,84px);align-items:start;}
+  @media (max-width:880px){.name-grid{grid-template-columns:1fr;gap:38px;}}
+  .def{border-top:1px solid var(--ink);padding-top:22px;}
+  .def .w{font-style:italic;font-size:30px;line-height:1;display:block;}
+  .def .pos{margin:9px 0 22px;opacity:.72;}
+  .def ol{list-style:none;counter-reset:d;}
+  .def li{counter-increment:d;position:relative;padding-left:30px;font-size:17px;line-height:1.5;margin-bottom:15px;}
+  .def li::before{content:counter(d) ".";position:absolute;left:0;top:1px;font-size:13px;opacity:.6;}
+  .name-body{border-top:1px solid var(--ink);padding-top:22px;}
+  .name-body .heading{margin-bottom:22px;max-width:27ch;}
+  .name-body .body-copy + .body-copy{margin-top:16px;}
+
+  /* ================= the counter ================= */
+  .counter{background:var(--plate);padding:clamp(64px,8.4vw,104px) 0 clamp(64px,8vw,100px);}
+  .counter-head{max-width:700px;margin-bottom:clamp(36px,5vw,56px);}
+  .counter-head .micro{opacity:.6;margin-bottom:15px;}
+  .counter-head .heading-lg{margin-bottom:16px;}
+
+  .specimens{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--rule);}
+  @media (max-width:860px){.specimens{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:540px){.specimens{grid-template-columns:1fr;}}
+  .spec{
+    margin:0;padding:32px 22px 28px;text-align:center;
+    border-top:1px solid var(--rule);
+    border-left:1px solid var(--rule);
+  }
+  .specimens .spec:nth-child(3n+1){border-left:0;}
+  @media (max-width:860px){
+    .specimens .spec:nth-child(3n+1){border-left:1px solid var(--rule);}
+    .specimens .spec:nth-child(2n+1){border-left:0;}
+  }
+  @media (max-width:540px){.specimens .spec{border-left:0;}}
+  .spec .art{height:186px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:22px;}
+  .spec .art svg{height:100%;width:auto;}
+  .spec .fr{display:block;font-size:27px;line-height:1.1;}
+  .spec .en{display:block;margin-top:9px;opacity:.62;}
+
+  .counter-foot{margin-top:clamp(46px,6vw,70px);display:flex;justify-content:center;color:var(--ink);opacity:.5;}
+  .counter-foot svg{width:clamp(190px,28vw,320px);}
+
+  /* ================= about ================= */
+  .about{padding:clamp(64px,8.4vw,104px) 0;}
+  .about-head{margin-bottom:clamp(30px,4vw,48px);}
+  .about-head .micro{opacity:.6;margin-bottom:15px;}
+  .about-row{
+    display:grid;grid-template-columns:0.5fr 1.5fr;gap:clamp(24px,5vw,72px);
+    padding:clamp(26px,3.4vw,38px) 0;
+    border-top:1px solid var(--rule);
+  }
+  .about-row:last-child{border-bottom:1px solid var(--rule);}
+  @media (max-width:760px){.about-row{grid-template-columns:1fr;gap:14px;}}
+  .about-k{display:flex;gap:14px;align-items:baseline;}
+  .about-k .num{font-size:13px;opacity:.5;}
+  .about-k .lbl{font-size:11px;text-transform:uppercase;letter-spacing:0.2em;line-height:1.6;}
+
+  /* ================= hours plaque ================= */
+  .plaque{background:var(--night);color:var(--oat);padding:clamp(56px,7.4vw,92px) 0;text-align:center;}
+  .plaque .orn{opacity:.55;}
+  .plaque-orn{display:flex;justify-content:center;}
+  .plaque-orn svg{width:clamp(170px,25vw,290px);}
+  .plaque .micro{opacity:.6;margin:24px 0 16px;}
+  .plaque-line{font-size:clamp(23px,3.4vw,42px);line-height:1.14;letter-spacing:-0.016em;margin:0 auto 24px;max-width:20ch;font-style:italic;}
+
+  /* ================= visit ================= */
+  .visit{background:var(--sage);padding:clamp(64px,8.4vw,104px) 0;}
+  .visit-grid{display:grid;grid-template-columns:0.6fr 1fr;gap:clamp(34px,6vw,84px);align-items:center;}
+  @media (max-width:880px){.visit-grid{grid-template-columns:1fr;gap:40px;}}
+  .seal{justify-self:center;width:min(290px,70vw);color:var(--ink);}
+  .visit-detail .micro{opacity:.6;margin-bottom:15px;}
+  .visit-detail .heading-lg{margin-bottom:26px;max-width:15ch;}
+  .vrow{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:15px 0;border-top:1px solid rgba(23,18,13,.22);font-size:17px;line-height:1.5;}
+  .vrow:last-of-type{border-bottom:1px solid rgba(23,18,13,.22);}
+  .vrow .k{font-size:10.5px;text-transform:uppercase;letter-spacing:0.2em;opacity:.62;padding-top:6px;}
+  .vrow a{border-bottom:1px solid rgba(23,18,13,.32);}
+  .vrow a:hover{color:var(--blueberry);border-bottom-color:var(--blueberry);}
+  .vcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+  .vfine{margin-top:20px;font-size:16px;line-height:1.5;opacity:.78;max-width:50ch;}
+  .vfine a{border-bottom:1px solid rgba(23,18,13,.32);}
+
+  /* ================= footer ================= */
+  footer{background:var(--night);color:var(--oat);padding:clamp(50px,6.6vw,74px) 0 30px;}
+  .fgrid{display:flex;justify-content:space-between;align-items:flex-start;gap:36px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(233,227,212,.16);}
+  .fgrid .lockup{text-align:left;}
+  .fgrid .lockup .orn{margin:0 0 6px;}
+  .fnav{display:flex;gap:26px;flex-wrap:wrap;padding-top:6px;}
+  .fnav a{font-size:16px;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .35s var(--ease);}
+  .fnav a:hover{border-bottom-color:rgba(233,227,212,.6);}
+  .fbot{padding-top:22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.5;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .rv{opacity:1;transform:none;}
+    .hero-frame,.orn-slot,.lockup-hero .orn,.lockup-hero .lk-name,.lockup-hero .lk-sub,.hero-tag,.hero-hours{opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<!-- engraved cartouche, redrawn from the Mon-Petit-Choux mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="fl-half">
+    <path d="M290 32 C 284 26 286 18 293 17"/>
+    <path d="M290 32 C 284 38 286 46 293 47"/>
+    <path d="M292 32 C 274 32 264 21 246 20 C 232 19 225 29 234 34 C 242 38 250 32 246 26"/>
+    <path d="M278 30 C 270 20 256 16 248 22 C 257 29 270 32 278 30 Z" fill="currentColor" stroke="none"/>
+    <path d="M262 26 C 259 16 264 8 274 6"/>
+    <circle cx="275" cy="5" r="2.4" fill="currentColor" stroke="none"/>
+    <path d="M246 20 C 226 19 212 35 190 37 C 172 38 162 29 170 23 C 177 18 186 25 182 31"/>
+    <path d="M216 33 C 208 43 193 48 186 42 C 195 34 207 31 216 33 Z" fill="currentColor" stroke="none"/>
+    <path d="M200 38 C 198 48 203 55 213 57"/>
+    <circle cx="214" cy="58" r="2.2" fill="currentColor" stroke="none"/>
+    <path d="M190 37 C 162 41 140 28 116 32 C 100 35 94 44 103 48"/>
+    <path d="M152 30 C 144 20 131 18 124 24 C 133 30 145 32 152 30 Z" fill="currentColor" stroke="none"/>
+    <path d="M132 34 C 126 40 128 47 135 47"/>
+    <circle cx="92" cy="32" r="2.6" fill="currentColor" stroke="none"/>
+    <circle cx="76" cy="29" r="1.8" fill="currentColor" stroke="none"/>
+    <circle cx="63" cy="27" r="1.2" fill="currentColor" stroke="none"/>
+  </g>
+  <g id="flourish">
+    <use href="#fl-half"/>
+    <use href="#fl-half" transform="translate(600,0) scale(-1,1)"/>
+    <path d="M300 23 L308 32 L300 41 L292 32 Z" fill="currentColor" stroke="none"/>
+  </g>
+</defs></svg>
+
+<header class="nav" id="nav">
+  <a class="lockup lockup-nav" href="#top">
+    <svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg>
+    <span class="lk-name">Mon-Petit-Choux</span>
+    <span class="lk-sub">Pastry Shoppe</span>
+  </a>
+  <nav class="navlinks">
+    <a class="t" href="#counter">The Counter</a>
+    <a class="t" href="#about">About</a>
+    <a class="t" href="#visit">Visit</a>
+    <a class="pill" href="tel:15136318333">Order ahead</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-frame">
+      <h1 class="lockup lockup-hero">
+        <svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg>
+        <span class="lk-name">Mon-Petit-Choux</span>
+        <span class="lk-sub">Pastry Shoppe</span>
+      </h1>
+      <p class="hero-tag">European pastry, baked before sunrise, in the Queen City.</p>
+      <span class="orn-slot bottom"><svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg></span>
+    </div>
+    <p class="micro hero-hours">Thursday to Saturday &middot; 8:30 to 1:30, or until sold out</p>
+  </section>
+
+  <section class="name" id="name">
+    <div class="wrap">
+      <div class="name-grid">
+        <div class="def rv">
+          <span class="w">chou</span>
+          <p class="micro pos">French &middot; noun</p>
+          <ol>
+            <li>Cabbage.</li>
+            <li>Pâte à choux: the piped dough that puffs into a cream puff or an eclair shell.</li>
+            <li>What a French grandmother calls a child she adores.</li>
+          </ol>
+        </div>
+        <div class="name-body rv">
+          <h2 class="heading">The name is a small joke that happens to also be true.</h2>
+          <p class="body-copy">We are known for our pâte à choux, which we use in several of our most requested products. Customers who have lived all over the world have told us our eclairs and cream puffs are the best they have ever had.</p>
+          <p class="body-copy">Wedding and celebration cakes still run through our sister atelier, Maribelle Cakery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counter" id="counter">
+    <div class="wrap">
+      <div class="counter-head rv">
+        <p class="micro">Today at the counter</p>
+        <h2 class="heading-lg">A short case, drawn from life.</h2>
+        <p class="body-copy">These plates stand in until the photography is shot. Names and prices are taken from the current sheet, and the case changes with the morning.</p>
+      </div>
+
+      <div class="specimens">
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M44 118 C36 66 74 38 112 40 C152 42 182 74 174 122 C168 158 132 168 106 166 C74 164 50 150 44 118 Z" fill="#F0D3AE" opacity=".5"/>
+            <ellipse cx="110" cy="164" rx="60" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <path d="M50 130 C50 148 76 159 110 159 C144 159 170 148 170 130 C170 119 150 113 110 113 C70 113 50 119 50 130 Z" fill="#EFC79C"/>
+            <path d="M60 138 C70 148 88 153 110 153" stroke="#fff" stroke-width="6" fill="none" opacity=".45" stroke-linecap="round"/>
+            <path d="M50 130 C50 148 76 159 110 159 C144 159 170 148 170 130 C170 119 150 113 110 113 C70 113 50 119 50 130 Z" fill="none" stroke="#17120D" stroke-width="1.7"/>
+            <path d="M52 121 C62 106 74 123 86 109 C98 95 110 115 122 101 C134 88 146 109 158 101 C167 95 171 112 169 123 C150 132 70 132 52 121 Z" fill="#FDF6EA"/>
+            <path d="M52 121 C62 106 74 123 86 109 C98 95 110 115 122 101 C134 88 146 109 158 101 C167 95 171 112 169 123" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M56 108 C50 74 78 50 110 50 C142 50 170 74 164 108 C140 99 80 99 56 108 Z" fill="#E9B173"/>
+            <path d="M70 92 C74 72 90 60 110 59" stroke="#F9E3C6" stroke-width="8" fill="none" opacity=".65" stroke-linecap="round"/>
+            <path d="M56 108 C50 74 78 50 110 50 C142 50 170 74 164 108" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linecap="round"/>
+            <g fill="none" stroke="#17120D" stroke-width="1.1" stroke-linecap="round" opacity=".6">
+              <path d="M84 66 C88 74 88 82 84 90"/><path d="M112 58 C114 68 112 78 108 86"/><path d="M140 68 C142 76 140 84 136 91"/>
+            </g>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Chou à la vanille</span>
+            <span class="en micro-w">Vanilla cream puff &middot; $6</span>
+          </figcaption>
+        </figure>
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M22 78 C60 60 168 60 200 82 C214 104 200 130 168 138 C120 148 54 146 30 132 C14 120 12 92 22 78 Z" fill="#F0D3AE" opacity=".45"/>
+            <ellipse cx="110" cy="150" rx="72" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <path d="M28 118 C28 100 44 92 62 92 L158 92 C176 92 192 100 192 118 C192 136 176 144 158 144 L62 144 C44 144 28 136 28 118 Z" fill="#EFC79C"/>
+            <path d="M42 128 C60 138 90 140 118 138" stroke="#fff" stroke-width="6" fill="none" opacity=".45" stroke-linecap="round"/>
+            <path d="M28 118 C28 100 44 92 62 92 L158 92 C176 92 192 100 192 118 C192 136 176 144 158 144 L62 144 C44 144 28 136 28 118 Z" fill="none" stroke="#17120D" stroke-width="1.7"/>
+            <path d="M30 100 C48 80 66 98 84 82 C102 66 120 90 138 78 C156 66 176 86 192 84 C196 96 194 104 190 108 C160 114 50 114 30 108 C27 104 27 103 30 100 Z" fill="#C4657F"/>
+            <path d="M40 92 C58 84 72 94 86 88" stroke="#DB93A8" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>
+            <path d="M30 100 C48 80 66 98 84 82 C102 66 120 90 138 78 C156 66 176 86 192 84" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linecap="round"/>
+            <g stroke="#17120D" stroke-width="1.1">
+              <circle cx="64" cy="84" r="9" fill="#A8354E"/><circle cx="115" cy="75" r="9" fill="#A8354E"/><circle cx="165" cy="80" r="8" fill="#A8354E"/>
+            </g>
+            <g fill="none" stroke="#17120D" stroke-width="1.1" stroke-linecap="round">
+              <path d="M92 70 C97 58 106 54 114 57"/><path d="M40 74 C44 64 52 61 58 63"/>
+            </g>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Éclair rose et framboise</span>
+            <span class="en micro-w">Rose and raspberry eclair &middot; $6</span>
+          </figcaption>
+        </figure>
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M18 148 C8 88 54 46 110 46 C166 46 212 88 202 148 C186 158 168 136 150 136 C130 136 90 136 70 136 C52 136 34 158 18 148 Z" fill="#F0D3AE" opacity=".45"/>
+            <ellipse cx="110" cy="152" rx="76" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <path d="M28 140 C28 78 62 46 110 46 C158 46 192 78 192 140 C192 140 178 108 110 108 C42 108 28 140 28 140 Z" fill="#E09A50"/>
+            <path d="M46 110 C50 84 66 62 88 52" stroke="#F7DCBA" stroke-width="10" fill="none" opacity=".55" stroke-linecap="round"/>
+            <path d="M28 140 C28 78 62 46 110 46 C158 46 192 78 192 140 C192 140 178 108 110 108 C42 108 28 140 28 140 Z" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linejoin="round"/>
+            <g fill="none" stroke="#17120D" stroke-width="1.1" stroke-linecap="round">
+              <path d="M48 122 C44 112 40 102 38 92"/><path d="M72 112 C68 96 64 78 62 62"/><path d="M95 109 C92 90 90 68 88 50"/>
+              <path d="M125 109 C128 90 130 68 132 50"/><path d="M148 112 C152 96 156 78 158 62"/><path d="M172 122 C176 112 180 102 182 92"/>
+            </g>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Croissant à la pistache</span>
+            <span class="en micro-w">Pistachio croissant &middot; $6</span>
+          </figcaption>
+        </figure>
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M32 150 C24 112 52 74 110 72 C168 70 196 112 188 150 C170 166 50 166 32 150 Z" fill="#F0D3AE" opacity=".45"/>
+            <ellipse cx="110" cy="164" rx="66" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <path d="M40 158 C36 140 46 132 110 132 C174 132 184 140 180 158 Z" fill="#EDBE8B"/>
+            <path d="M40 158 C36 140 46 132 110 132 C174 132 184 140 180 158 Z" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M52 146 C80 152 140 152 168 146" fill="none" stroke="#17120D" stroke-width="1.1" opacity=".55" stroke-linecap="round"/>
+            <g stroke="#17120D" stroke-width="1.7" stroke-linejoin="round">
+              <path d="M74 130 C70 110 78 96 88 96 C99 96 104 111 100 130 Z" fill="#FBEFDD"/>
+              <path d="M120 130 C116 111 121 96 132 96 C142 96 150 110 146 130 Z" fill="#FBEFDD"/>
+            </g>
+            <g fill="none" stroke="#17120D" stroke-width="1.1" opacity=".5" stroke-linecap="round">
+              <path d="M84 124 C82 112 84 103 89 100"/><path d="M136 124 C138 112 136 103 131 100"/>
+            </g>
+            <g stroke="#17120D" stroke-width="1.7">
+              <circle cx="56" cy="120" r="17" fill="#F0C79B"/>
+              <path d="M41 114 C45 101 67 101 71 115 C62 120 50 120 41 114 Z" fill="#C4763A" stroke="none"/>
+              <circle cx="56" cy="120" r="17" fill="none"/>
+              <circle cx="164" cy="120" r="17" fill="#F0C79B"/>
+              <path d="M149 114 C153 101 175 101 179 115 C170 120 158 120 149 114 Z" fill="#C4763A" stroke="none"/>
+              <circle cx="164" cy="120" r="17" fill="none"/>
+              <circle cx="110" cy="116" r="18" fill="#F2CCA4"/>
+              <path d="M94 110 C98 96 122 96 126 111 C117 116 103 116 94 110 Z" fill="#C4763A" stroke="none"/>
+              <circle cx="110" cy="116" r="18" fill="none"/>
+            </g>
+            <circle cx="110" cy="92" r="7" fill="#A8354E" stroke="#17120D" stroke-width="1.1"/>
+            <path d="M113 87 C116 81 121 79 126 81" fill="none" stroke="#17120D" stroke-width="1.1" stroke-linecap="round"/>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Saint-Honoré</span>
+            <span class="en micro-w">Choux, caramel, chiboust &middot; $7.50</span>
+          </figcaption>
+        </figure>
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M38 62 C70 48 156 48 184 64 C196 96 192 150 178 162 C140 172 74 172 42 162 C30 148 28 90 38 62 Z" fill="#F0D3AE" opacity=".42"/>
+            <ellipse cx="110" cy="166" rx="60" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <path d="M50 82 L50 152 C50 158 56 162 64 162 L156 162 C164 162 170 158 170 152 L170 82 Z" fill="#FBF3E4"/>
+            <path d="M50 82 L170 82 L170 96 L50 96 Z" fill="#D75B72"/>
+            <path d="M50 122 L170 122 L170 132 L50 132 Z" fill="#E3B87C"/>
+            <g>
+              <path d="M64 122 C64 108 74 98 82 98 C90 98 100 108 100 122 Z" fill="#C8324C"/>
+              <path d="M120 122 C120 108 130 98 138 98 C146 98 156 108 156 122 Z" fill="#C8324C"/>
+              <path d="M70 116 C72 108 76 103 82 101" stroke="#EE7E93" stroke-width="3" fill="none" opacity=".8" stroke-linecap="round"/>
+              <path d="M126 116 C128 108 132 103 138 101" stroke="#EE7E93" stroke-width="3" fill="none" opacity=".8" stroke-linecap="round"/>
+              <path d="M64 122 C64 108 74 98 82 98 C90 98 100 108 100 122" fill="none" stroke="#17120D" stroke-width="1.1"/>
+              <path d="M120 122 C120 108 130 98 138 98 C146 98 156 108 156 122" fill="none" stroke="#17120D" stroke-width="1.1"/>
+            </g>
+            <path d="M50 74 C50 66 62 62 110 62 C158 62 170 66 170 74 C170 82 158 86 110 86 C62 86 50 82 50 74 Z" fill="#E04A66"/>
+            <path d="M64 70 C76 66 96 65 112 66" stroke="#F09AAB" stroke-width="4" fill="none" opacity=".7" stroke-linecap="round"/>
+            <path d="M50 74 C50 66 62 62 110 62 C158 62 170 66 170 74 C170 82 158 86 110 86 C62 86 50 82 50 74 Z" fill="none" stroke="#17120D" stroke-width="1.7"/>
+            <path d="M50 74 L50 152 C50 158 56 162 64 162 L156 162 C164 162 170 158 170 152 L170 74" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M50 96 H170 M50 122 H170 M50 132 H170" fill="none" stroke="#17120D" stroke-width="1.1"/>
+            <path d="M104 56 C100 44 106 34 118 32 C120 44 114 54 104 56 Z" fill="#7E9455" stroke="#17120D" stroke-width="1.1"/>
+            <circle cx="100" cy="54" r="8" fill="#C8324C" stroke="#17120D" stroke-width="1.1"/>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Fraisier aux fraises</span>
+            <span class="en micro-w">Strawberry fraisier entremet &middot; $9</span>
+          </figcaption>
+        </figure>
+
+        <figure class="spec rv">
+          <div class="art"><svg viewBox="0 0 220 190">
+            <path d="M52 154 C50 116 74 40 110 32 C146 40 170 116 168 154 C140 166 80 166 52 154 Z" fill="#F0D3AE" opacity=".45"/>
+            <ellipse cx="110" cy="170" rx="62" ry="6" fill="#D9CDBB" opacity=".5"/>
+            <g stroke="#17120D" stroke-width="1.7">
+              <circle cx="110" cy="44" r="13" fill="#F2CCA4"/>
+              <circle cx="92" cy="72" r="14" fill="#EFC49B"/><circle cx="128" cy="72" r="14" fill="#ECBC8E"/>
+              <circle cx="72" cy="104" r="15" fill="#ECBC8E"/><circle cx="110" cy="100" r="15" fill="#F2CCA4"/><circle cx="148" cy="104" r="15" fill="#ECBC8E"/>
+              <circle cx="58" cy="136" r="16" fill="#E9B57F"/><circle cx="93" cy="134" r="16" fill="#F0C79B"/>
+              <circle cx="128" cy="134" r="16" fill="#EFC49B"/><circle cx="162" cy="136" r="16" fill="#E9B57F"/>
+            </g>
+            <g stroke="#C4763A" stroke-width="1.4" fill="none" opacity=".95" stroke-linecap="round">
+              <path d="M98 32 C114 28 128 40 124 56"/><path d="M78 60 C96 54 112 66 110 82"/><path d="M138 62 C154 68 158 84 146 94"/>
+              <path d="M54 120 C74 114 94 124 90 138"/><path d="M128 118 C148 112 166 120 164 134"/><path d="M86 96 C104 90 118 98 116 112"/>
+            </g>
+            <path d="M38 158 C72 150 148 150 182 158" fill="none" stroke="#17120D" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M46 158 C48 164 60 168 110 168 C160 168 172 164 174 158" fill="none" stroke="#17120D" stroke-width="1.1" stroke-linecap="round"/>
+          </svg></div>
+          <figcaption>
+            <span class="fr script">Croquembouche</span>
+            <span class="en micro-w">Celebration tower, to order &middot; from $140</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="counter-foot rv"><svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-head rv">
+        <p class="micro">About the shoppe</p>
+        <h2 class="heading-lg">Three things worth knowing.</h2>
+      </div>
+
+      <div class="about-row rv">
+        <div class="about-k"><span class="num">01</span><span class="lbl">Early Mornings</span></div>
+        <p class="body-copy">Our bakers start work before the sun rises each day to ensure that every batch is as fresh as possible before it gets to you. The warm smell of baking often escapes onto the street before we have even opened. We are dedicated to kickstarting your morning with warm croissants, buttery danishes and a cup of hot tea. Our bakery also has desserts and delicious cakes, and you can even get cake by the slice.</p>
+      </div>
+
+      <div class="about-row rv">
+        <div class="about-k"><span class="num">02</span><span class="lbl">Handcrafted Goods</span></div>
+        <p class="body-copy">We work with local suppliers to source the freshest and most authentic ingredients, and use old-fashioned techniques to ensure the highest quality. Our goal is to make your tastebuds happy.</p>
+      </div>
+
+      <div class="about-row rv">
+        <div class="about-k"><span class="num">03</span><span class="lbl">A Cozy Place to Enjoy</span></div>
+        <p class="body-copy">Located in Cheviot, we have a nice indoor and outdoor space to enjoy your pastries.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="plaque">
+    <div class="wrap">
+      <div class="plaque-orn rv"><svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg></div>
+      <p class="micro rv">Jeudi &middot; Vendredi &middot; Samedi</p>
+      <p class="plaque-line rv">Open 8:30 to 1:30, or until the case is empty.</p>
+      <div class="plaque-orn rv"><svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg></div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div class="seal rv">
+        <svg viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="144" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="150" cy="150" r="134" fill="none" stroke="currentColor" stroke-width="1"/>
+          <g transform="translate(150,88) scale(0.34) translate(-300,-32)"><use href="#flourish"/></g>
+          <text x="150" y="172" text-anchor="middle" font-family="'EB Garamond',Garamond,serif" font-size="60" letter-spacing="2" fill="currentColor">MPC</text>
+          <g transform="translate(150,200) scale(0.26) translate(-300,-32)"><use href="#flourish"/></g>
+          <text x="150" y="236" text-anchor="middle" font-family="'EB Garamond',Garamond,serif" font-size="11" letter-spacing="5" fill="currentColor">PÂTISSERIE</text>
+          <text x="150" y="255" text-anchor="middle" font-family="'EB Garamond',Garamond,serif" font-size="11" letter-spacing="3.2" fill="currentColor">CHEVIOT, OHIO</text>
+        </svg>
+      </div>
+      <div class="visit-detail rv">
+        <p class="micro">Visit the counter</p>
+        <h2 class="heading-lg">Come before the case does.</h2>
+        <div class="vrow"><span class="k">Address</span><span>3704 Cheviot Avenue, Suite 2<br>Cincinnati, Ohio 45211</span></div>
+        <div class="vrow"><span class="k">Hours</span><span>Thursday and Friday, 8:30am to 1:30pm<br>Saturday, 9am to 1:30pm<br>Sunday to Wednesday, closed</span></div>
+        <div class="vrow"><span class="k">Telephone</span><span><a href="tel:15136318333">(513) 631-8333</a></span></div>
+        <div class="vrow"><span class="k">Correspondence</span><span><a href="mailto:monpetitchouxltd@gmail.com">monpetitchouxltd@gmail.com</a></span></div>
+        <div class="vcta">
+          <a class="pill" href="https://www.google.com/maps/search/?api=1&query=3704+Cheviot+Avenue+Suite+2+Cincinnati+Ohio+45211" target="_blank" rel="noopener">Get directions</a>
+          <a class="pill ghost" href="tel:15136318333">Call to order ahead</a>
+        </div>
+        <p class="vfine">Special orders need 48 hours' notice. Custom cakes are handled by our sister atelier, <a href="mailto:maribelleltd@gmail.com">Maribelle Cakery</a>.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <a class="lockup lockup-foot" href="#top">
+        <svg class="orn" viewBox="0 0 600 64"><use href="#flourish"/></svg>
+        <span class="lk-name">Mon-Petit-Choux</span>
+        <span class="lk-sub">Pastry Shoppe</span>
+      </a>
+      <nav class="fnav">
+        <a href="#counter">The Counter</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+        <a href="https://www.instagram.com/mon.petit.choux.cincinnati/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <p class="fbot">&copy; 2026 Mon-Petit-Choux Pastry Shoppe &middot; Cheviot, Cincinnati</p>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, {passive:true});
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e, i){
+      if (e.isIntersecting){
+        setTimeout(function(){ e.target.classList.add('in'); }, i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>

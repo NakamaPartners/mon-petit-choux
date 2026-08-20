@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Mon-Petit-Choux"
+description = "A warm, editorial bakery homepage for Mon-Petit-Choux, showcasing handcrafted French pastries, rotating menu favorites, and the Cincinnati shop experience."
+version = "1.0.0"
+id = "artifacts/mon-petit-choux"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23782
+
+[services.development]
+run = "pnpm --filter @workspace/mon-petit-choux run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mon-petit-choux", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/mon-petit-choux/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23782"
+BASE_PATH = "/"
