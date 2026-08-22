@@ -98,6 +98,7 @@ function Home() {
       <div className="menu-page-top"><span>Menu · {String(page + 2).padStart(2, '0')}</span><span>{page === 0 ? 'Pâte à choux' : page === 1 ? 'Pâtisserie' : 'Boulangerie'}</span></div>
       <h3>{menu.title}</h3>
       <p className="menu-page-intro">{menu.intro}</p>
+      {page === 0 && <div className="menu-award"><span className="menu-award-label">Cream Puff Honors</span><strong>Our cream puffs have won<br />Best in the State of Ohio<br />Best of Cincinnati</strong></div>}
       <div className="menu-items">{menu.items.map(([name, price, description]) => <div className="menu-item" key={name}><div className="menu-item-line"><strong>{name}</strong><span className="menu-dots" /><b>{price}</b></div><p>{description}</p></div>)}</div>
     </>
   );
