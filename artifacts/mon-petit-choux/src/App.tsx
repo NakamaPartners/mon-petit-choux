@@ -132,6 +132,10 @@ function Home() {
             <span className="orn-slot bottom"><Flourish /></span>
             <h1><Lockup variant="hero" /></h1>
             <p className="hero-tag">French pastries, baked fresh every morning.</p>
+            <div className="hero-actions" aria-label="Hero actions">
+              <button className="pill hero-order" type="button">Order now</button>
+              <a className="pill ghost" href="#counter">View menu <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <p className="micro hero-hours">Thursday &amp; Friday · 8:30 to 1:30 · Saturday · 9 to 1:30, or until sold out</p>
         </section>
