@@ -88,6 +88,7 @@ function PastryArt({ type }: { type: string }) {
 
 function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPage, setMenuPage] = useState(0);
   const [pageDirection, setPageDirection] = useState<'next' | 'prev'>('next');
@@ -113,17 +114,29 @@ function Home() {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setNavOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   return (
     <div className="reference-site">
-      <header className={`ref-nav ${scrolled ? 'scrolled' : ''}`} id="nav">
-        <a href="#top"><Lockup variant="nav" /></a>
-        <nav className="ref-navlinks">
-          <a className="nav-text" href="#counter">The Menu</a>
-          <a className="nav-text" href="#about">About</a>
-          <a className="nav-text" href="#visit">Visit</a>
-          <a className="pill" href="tel:15136318333">Order ahead</a>
+      <header className={`ref-nav ${scrolled ? 'scrolled' : ''} ${navOpen ? 'nav-open' : ''}`} id="nav">
+        <a href="#top" onClick={() => setNavOpen(false)}><Lockup variant="nav" /></a>
+        <nav className={`ref-navlinks ${navOpen ? 'is-open' : ''}`} id="site-nav-menu">
+          <a className="nav-text" href="#counter" onClick={() => setNavOpen(false)}>The Menu</a>
+          <a className="nav-text" href="#about" onClick={() => setNavOpen(false)}>About</a>
+          <a className="nav-text" href="#visit" onClick={() => setNavOpen(false)}>Visit</a>
+          <a className="pill" href="tel:15136318333" onClick={() => setNavOpen(false)}>Order ahead</a>
         </nav>
+        <button className={`nav-toggle ${navOpen ? 'is-open' : ''}`} type="button" aria-expanded={navOpen} aria-controls="site-nav-menu" aria-label={navOpen ? 'Close navigation menu' : 'Open navigation menu'} onClick={() => setNavOpen((open) => !open)}>
+          <span className="nav-toggle-line" />
+          <span className="nav-toggle-line" />
+          <span className="nav-toggle-line" />
+        </button>
       </header>
 
       <main id="top">
