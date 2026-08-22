@@ -189,8 +189,8 @@ function Home() {
                 <section className={`menu-page menu-page-${menuPage}`}>
                   <div className="menu-page-sheet menu-page-sheet-in">{renderMenuSheet(activeMenu, menuPage)}</div>
                   {turningFromPage !== null && <div className={`menu-page-sheet menu-page-sheet-out page-turn-${pageDirection}`} aria-hidden="true" onAnimationEnd={() => setTurningFromPage(null)}>
-                    <div className="menu-sheet-face menu-sheet-front">{renderMenuSheet(menuSections[turningFromPage], turningFromPage)}</div>
-                    <div className="menu-sheet-face menu-sheet-back">{renderMenuSheet(activeMenu, menuPage)}</div>
+                    <div className={`menu-sheet-face menu-sheet-front menu-sheet-page-${turningFromPage}`}>{renderMenuSheet(menuSections[turningFromPage], turningFromPage)}</div>
+                    <div className={`menu-sheet-face menu-sheet-back menu-sheet-page-${menuPage}`}>{renderMenuSheet(activeMenu, menuPage)}</div>
                   </div>}
                   <div className="menu-page-actions">
                     <button type="button" className="page-arrow" onClick={() => changeMenuPage(menuPage - 1)} disabled={menuPage === 0 || turningFromPage !== null} aria-label="Previous menu page">←</button>
