@@ -186,7 +186,7 @@ function Home() {
                 <span className="menu-open-label">{menuOpen ? 'Menu open' : 'Open the menu'} <span aria-hidden="true">↗</span></span>
               </button>
               {menuOpen ? <div className="menu-pages" aria-live="polite">
-                <section className="menu-page">
+                <section className={`menu-page menu-page-${menuPage}`}>
                   <div className="menu-page-sheet menu-page-sheet-in">{renderMenuSheet(activeMenu, menuPage)}</div>
                   {turningFromPage !== null && <div className={`menu-page-sheet menu-page-sheet-out page-turn-${pageDirection}`} aria-hidden="true" onAnimationEnd={() => setTurningFromPage(null)}>
                     <div className="menu-sheet-face menu-sheet-front">{renderMenuSheet(menuSections[turningFromPage], turningFromPage)}</div>
