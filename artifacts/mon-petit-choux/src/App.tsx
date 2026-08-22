@@ -54,7 +54,6 @@ const menuSections = [
       ['Raspberry', '$6', 'Raspberry pastry cream with raspberry topping.'],
       ['Pistachio', '$6', 'Pistachio pastry cream and pistachio topping.'],
       ['Vanilla', '$6', 'Vanilla pastry cream dipped in chocolate.'],
-      ['Rose & Raspberry', '$6', 'Pastry cream filled with rose and raspberry.'],
     ],
   },
   {
