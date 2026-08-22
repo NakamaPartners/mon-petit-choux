@@ -36,7 +36,7 @@ function Lockup({ variant }: { variant: 'nav' | 'hero' | 'foot' }) {
 const menuSections = [
   {
     title: 'Cream Puffs',
-    intro: 'Pâte à choux topped with signature craquelin, pastry cream, compote, and cream fillings.',
+    intro: 'Pâte à Choux pastry topped with our signature craquelin with pastry cream, compote, and delicious cream fillings.',
     items: [
       ['Vanilla', '$6', 'Fresh made vanilla pastry cream and whipping cream.'],
       ['Chocolate', '$8', 'Callebaut chocolate pastry cream and whipping cream.'],
@@ -47,7 +47,7 @@ const menuSections = [
   },
   {
     title: 'Gourmet Éclairs',
-    intro: 'Pâte à choux with signature craquelin, pastry cream, compotes, and other fillings.',
+    intro: 'Pâte à Choux with our signature craquelin, filled with pastry cream, compotes, and other delicious fillings. Baked Fresh daily.',
     items: [
       ['Vanilla · dark chocolate · raspberry', '$9', 'Pastry cream, vanilla whipping cream, Callebaut chocolate, and fresh raspberries.'],
       ['Pear', '$9', 'Pear compote, vanilla pastry cream, Chantilly cream, and crumble topping.'],
